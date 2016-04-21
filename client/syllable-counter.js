@@ -4,9 +4,8 @@ Template.syllableCounter.events({
 	'submit .syllable-counter': function(event) {
     event.preventDefault();
 		$("#output").empty();
-		let syllables = pronouncing.syllableCount($("#word").val());
-		$.each(syllables, function(i, item) {
-			$("#output").append("<li>" + item + "</li>");
-		});
+		let syllables = pronouncing.syllableCount(pronouncing.phonesForWord($("#word").val())[0]);
+			$("#output").append(syllables);
+			console.log(syllables);
 	}
 });

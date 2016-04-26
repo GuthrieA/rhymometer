@@ -1,5 +1,12 @@
 let pronouncing = require('pronouncing/build/pronouncing-browser');
 
+
+let str = "How are you doing today?";
+let punctuationless = str.replace(/[.,\/#?!$%\^&\*;:{}=\-_`~()]/g,"");
+let finalString = punctuationless.replace(/\s{2,}/g," ");
+let arrayOfFinalString = finalString.split(" ");
+console.log(arrayOfFinalString);
+
 Template.syllableCounter.events({
 	'submit .syllable-counter': function(event) {
     event.preventDefault();

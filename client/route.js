@@ -10,3 +10,7 @@ Router.route('/', function () {
 Router.route('/syllable-counter', function () {
   this.render('syllableCounter');
 });
+
+Router.route('/rhymometer', function () {
+  this.render('rhymometer');
+});

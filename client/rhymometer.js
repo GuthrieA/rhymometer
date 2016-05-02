@@ -1,17 +1,21 @@
-// Template.rhymometer.events({
-//   'submit .rhyme-form': function(event, template) {
-//   event.preventDefault();
-//
-//   word1 = template.find('#word1').value;
-//   word2 = template.find('#word2').value;
-//
-//   console.log(word1);
-//   console.log(word2);
-//
-//   // function doesRhyme (word1, word2){
-//   let pronouncing.rhymes($("#word1").val());
-//     for (word in variable){
-//       console.log(word);
-//     }
-//   // }
-// });
+let pronouncing = require('pronouncing/build/pronouncing-browser');
+
+Template.rhymometer.events({
+  'submit .rhyme-form': function(event, template) {
+  event.preventDefault();
+
+  let word1 = template.find('#word1').value;
+  let word2 = template.find('#word2').value;
+
+  let word1Rhymes = pronouncing.rhymes($("#word1").val());
+
+  function doesRhyme (a, b){
+    for (x=0; x<a.length; x++){
+      if (a[x] == b){
+        return(a[x]);
+      }
+    }
+  }
+  console.log(doesRhyme(word1Rhymes, word2));
+}
+});

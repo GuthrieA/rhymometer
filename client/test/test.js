@@ -1,38 +1,35 @@
 let pronouncing = require('pronouncing/build/pronouncing-browser');
 
-
-Template.locater.events({
+Template.test.events({
 	'submit .locaterCounter': function(event, template) {
 		event.preventDefault();
-
 		$("#output").empty();
 
 		let wordSyllables = 0;
 		let count = 0;
-
-
+		// The input phrase
 		const phrase = template.find('#fullPhrase').value;
 
-
-		console.log(phrase);
-
 		// Remove punctuation
-		let str = (phrase);
+		function breakPhrase(str){
 		let punctuationless = str.replace(/[.,\/#?!$%\^&\*;:{}=\-_`~()]/g,"");
 		let lowerString = punctuationless.toLowerCase();
 		let finalString = lowerString.replace(/\s{2,}/g," ");
 		let arrayOfFinalString = finalString.split(" ");
-		console.log(arrayOfFinalString);
+		return arrayOfFinalString;
+		}
 
 		// Count the syllables
-		for (word in arrayOfFinalString){
-		wordSyllables = pronouncing.syllableCount(pronouncing.phonesForWord(arrayOfFinalString[word])[0]);
-		count += wordSyllables;
+		function counter(arrayOfBrokenString){
+			for (word in arrayOfBrokenString){
+			wordSyllables = pronouncing.syllableCount(pronouncing.phonesForWord(arrayOfBrokenString[word])[0]);
+			count += wordSyllables;
+			}
+			return count;
 		}
     // Test the rhymes
-
     function doesRhyme (a, b){
-      for (x=0; x<a.length; x++){
+      for (let x=0; x<a.length; x++){
         if (a[x] == b){
           return(true);
         }
@@ -40,16 +37,23 @@ Template.locater.events({
       return(false);
     }
 
-    for (wordNumber in arrayOfFinalString){
-      let wordRhymes = pronouncing.rhymes(arrayOfFinalString[wordNumber]);
-      for (y=wordNumber; y<arrayOfFinalString.length; y++) {
-        if (doesRhyme(wordRhymes, arrayOfFinalString[y])){
-          console.log(arrayOfFinalString[wordNumber]);
+		// Locate the rhyming words
+		function locater (arrayOfWords){
+	    for (x=0; x<arrayOfWords.length; x++){
+	      let wordRhymes = pronouncing.rhymes(arrayOfWords[x]);
+	      for (let y=(x+1); y<arrayOfWords.length; y++) {
+					if (doesRhyme(wordRhymes, arrayOfWords[y]) || arrayOfWords[x] == arrayOfWords[y]){
+						console.log(arrayOfWords[y]);
+					}
         }
-      }
-    }
+    	}
+		}
 
-
+		// Run the functions
+		let brokenPhrase = breakPhrase(phrase);
+		count = counter(brokenPhrase);
+		console.log(brokenPhrase);
+		locater(brokenPhrase);
 
     $("#output").append(phrase);
     $("#output").append(" " + count);

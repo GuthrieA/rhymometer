@@ -18,3 +18,7 @@ Router.route('/rhymometer', function () {
 Router.route('/locater', function () {
   this.render('locater');
 });
+
+Router.route('/test', function () {
+  this.render('test');
+});

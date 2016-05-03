@@ -12,8 +12,9 @@ Template.test.events({
 
 		// Remove punctuation
 		function breakPhrase(str){
-		let punctuationless = str.replace(/[.,\/#?!$%\^&\*;:{}=\-_`~()]/g,"");
-		let lowerString = punctuationless.toLowerCase();
+		let punctuationLess = str.replace(/[.,\/#?!$%\^&\*;:{}=\-_`~()]/g,"");
+		let breakLess = punctuationLess.replace(/\r?\n|\r/g, " ");
+		let lowerString = breakLess.toLowerCase();
 		let finalString = lowerString.replace(/\s{2,}/g," ");
 		let arrayOfFinalString = finalString.split(" ");
 		return arrayOfFinalString;
@@ -39,10 +40,11 @@ Template.test.events({
 
 		// Locate the rhyming words
 		function locater (arrayOfWords){
-	    for (x=0; x<arrayOfWords.length; x++){
+	    for (let x=0; x<arrayOfWords.length; x++){
 	      let wordRhymes = pronouncing.rhymes(arrayOfWords[x]);
 	      for (let y=(x+1); y<arrayOfWords.length; y++) {
 					if (doesRhyme(wordRhymes, arrayOfWords[y]) || arrayOfWords[x] == arrayOfWords[y]){
+						console.log(arrayOfWords[x]);
 						console.log(arrayOfWords[y]);
 					}
         }
@@ -55,7 +57,17 @@ Template.test.events({
 		console.log(brokenPhrase);
 		locater(brokenPhrase);
 
-    $("#output").append(phrase);
+
+		// Put it back together without the punctuation
+		function putItTogether(arrayPhrase){
+			let newPhrase = [];
+			for (let x = 0; x<arrayPhrase.length; x++){
+				newPhrase.push(arrayPhrase[x] + " ");
+			}
+			return newPhrase;
+		}
+
+    $("#output").append(putItTogether(brokenPhrase));
     $("#output").append(" " + count);
 
 

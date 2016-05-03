@@ -58,6 +58,14 @@ Template.test.events({
 		locater(brokenPhrase);
 
 
+		// Highlight the rhymes
+		function highlighter(unhighlightedPhrase){
+				if (unhighlightedPhrase == "fox"){
+					unhighlightedPhrase.replace(/fox/,"<span>fox</span>");
+			}
+		}
+
+		highlighter(phrase);
 		// Put it back together without the punctuation
 		function putItTogether(arrayPhrase){
 			let newPhrase = [];
@@ -67,8 +75,9 @@ Template.test.events({
 			return newPhrase;
 		}
 
-    $("#output").append(putItTogether(brokenPhrase));
-    $("#output").append(" " + count);
+		$("#output").append(highlighter(phrase) + " ");
+    // $("#output").append(putItTogether(brokenPhrase) + " ");
+    // $("#output").append(" " + count);
 
 
 

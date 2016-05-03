@@ -14,3 +14,7 @@ Router.route('/syllable-counter', function () {
 Router.route('/rhymometer', function () {
   this.render('rhymometer');
 });
+
+Router.route('/locater', function () {
+  this.render('locater');
+});

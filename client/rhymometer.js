@@ -9,7 +9,7 @@ Template.rhymometer.events({
   let word1 = template.find('#word1').value;
   let word2 = template.find('#word2').value;
 
-  let word1Rhymes = pronouncing.rhymes($("#word1").val());
+  let word1Rhymes = pronouncing.rhymes($( "#word1").val());
 
   function doesRhyme (a, b){
     for (x=0; x<a.length; x++){
@@ -18,8 +18,9 @@ Template.rhymometer.events({
       }
     }
   }
+
   if (doesRhyme(word1Rhymes, word2)){
-  $("#output").append("Rhymes!");
+  $("#output").append(word1 + " " + "and" + " " + word2 + " " + "rhyme!");
 }
 }
 });

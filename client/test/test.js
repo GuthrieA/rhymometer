@@ -67,16 +67,20 @@ Template.test.events({
 
 		highlighter(phrase);
 		// Put it back together without the punctuation
-		function putItTogether(arrayPhrase){
-			let newPhrase = [];
-			for (let x = 0; x<arrayPhrase.length; x++){
-				newPhrase.push(arrayPhrase[x] + " ");
-			}
-			return newPhrase;
-		}
+		// function putItTogether(arrayPhrase){
+		// 	let newPhrase = [];
+		// 	for (let x = 0; x<arrayPhrase.length; x++){
+		// 		newPhrase.push(arrayPhrase[x] + " ");
+		// 	}
+		// 	console.log(newPhrase)
+		// 	return newPhrase;
+		// }
 
-		$("#output").append(highlighter(phrase) + " ");
-    // $("#output").append(putItTogether(brokenPhrase) + " ");
+		console.log(brokenPhrase);
+		console.log(brokenPhrase.join(" "));
+
+		// $("#output").append(highlighter(phrase) + " ");
+    $("#output").append(brokenPhrase.join(" ") + " " + "has" + " " + count + " " + "syllables");
     // $("#output").append(" " + count);
 
 

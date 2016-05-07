@@ -22,6 +22,7 @@ Template.test.events({
 
 		// Count the syllables
 		function counter(arrayOfBrokenString){
+			let count = 0;
 			for (word in arrayOfBrokenString){
 			wordSyllables = pronouncing.syllableCount(pronouncing.phonesForWord(arrayOfBrokenString[word])[0]);
 			count += wordSyllables;
@@ -29,7 +30,7 @@ Template.test.events({
 			return count;
 		}
     // Test the rhymes
-    function doesRhyme (a, b){
+    function doesRhyme(a, b){
       for (let x=0; x<a.length; x++){
         if (a[x] == b){
           return(true);
@@ -39,33 +40,65 @@ Template.test.events({
     }
 
 		// Locate the rhyming words
-		function locater (arrayOfWords){
+		function locater(arrayOfWords){
+			let firstWord= '';
+			let secondWord= '';
 	    for (let x=0; x<arrayOfWords.length; x++){
 	      let wordRhymes = pronouncing.rhymes(arrayOfWords[x]);
 	      for (let y=(x+1); y<arrayOfWords.length; y++) {
 					if (doesRhyme(wordRhymes, arrayOfWords[y]) || arrayOfWords[x] == arrayOfWords[y]){
 						console.log(arrayOfWords[x]);
 						console.log(arrayOfWords[y]);
+						firstWord = arrayOfWords[x];
+						secondWord = arrayOfWords[y];
 					}
         }
     	}
+			return [firstWord, secondWord];
+		}
+		// let firstWord = brokenPhrase[0];
+		// let secondWord = brokenPhrase[1];
+
+		// slice an array into it's indicies
+
+		function arraySeparation (array, firstWord, secondWord){
+			for (let x=0; x<array.length; x++){
+				if (array[x] == firstWord){
+					array = array.slice(x);
+				}
+			}
+			for (let y =0; y<array.length; y++){
+				if (array[y] == secondWord){
+				array =	array.slice(0, y);
+				}
+			}
+			console.log(array);
+			return array;
 		}
 
 		// Run the functions
 		let brokenPhrase = breakPhrase(phrase);
-		count = counter(brokenPhrase);
-		console.log(brokenPhrase);
-		locater(brokenPhrase);
+		let fullCount = counter(brokenPhrase);
+		console.log(fullCount);
+		let located = locater(brokenPhrase);
+		let firstWord = located[0];
+		let secondWord = located[1];
+		console.log(firstWord);
+		console.log(secondWord);
+		let rhymeCount = counter(arraySeparation(brokenPhrase, firstWord, secondWord));
+		console.log(rhymeCount + " " + "between rhymes")
+
+
+
 
 
 		// Highlight the rhymes
-		function highlighter(unhighlightedPhrase){
-				if (unhighlightedPhrase == "fox"){
-					unhighlightedPhrase.replace(/fox/,"<span>fox</span>");
-			}
-		}
+		// function highlighter(unhighlightedPhrase){
+		// 		if (unhighlightedPhrase == "fox"){
+		// 			unhighlightedPhrase.replace(/fox/,"<span>fox</span>");
+		// 	}
+		// }
 
-		highlighter(phrase);
 		// Put it back together without the punctuation
 		// function putItTogether(arrayPhrase){
 		// 	let newPhrase = [];

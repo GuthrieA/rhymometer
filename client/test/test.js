@@ -41,20 +41,19 @@ Template.test.events({
 
 		// Locate the rhyming words
 		function locater(arrayOfWords){
-			let firstWord= '';
-			let secondWord= '';
+			// let firstWord= '';
+			// let secondWord= '';
 			let pairs = [];
 	    for (let x=0; x<arrayOfWords.length; x++){
 	      let wordRhymes = pronouncing.rhymes(arrayOfWords[x]);
 	      for (let y=(x+1); y<arrayOfWords.length; y++) {
-					if (doesRhyme(wordRhymes, arrayOfWords[y]) || arrayOfWords[x] == arrayOfWords[y]){
+					if (doesRhyme(wordRhymes, arrayOfWords[y])){ /* || arrayOfWords[x] == arrayOfWords[y])*/
 						console.log(arrayOfWords[x]);
 						console.log(arrayOfWords[y]);
-						firstWord = arrayOfWords[x];
-						secondWord = arrayOfWords[y];
+						pairs.push([arrayOfWords[x], arrayOfWords[y]]);
 					}
         }
-				pairs.push([firstWord, secondWord]);
+
     	}
 			console.log(pairs);
 			return pairs;
@@ -85,11 +84,10 @@ Template.test.events({
 		let brokenPhrase = breakPhrase(phrase);
 		let fullCount = counter(brokenPhrase);
 		console.log(fullCount);
-		console.log(locatedGroup);
 		let located = locater(brokenPhrase);
 		console.log(located);
-		let rhymeCount = counter(arraySeparation(brokenPhrase, firstWord, secondWord));
-		console.log(rhymeCount + " " + "between rhymes")
+		// let rhymeCount = counter(arraySeparation(brokenPhrase, firstWord, secondWord));
+		// console.log(rhymeCount + " " + "between rhymes")
 
 
 

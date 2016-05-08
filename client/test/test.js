@@ -43,6 +43,7 @@ Template.test.events({
 		function locater(arrayOfWords){
 			let firstWord= '';
 			let secondWord= '';
+			let pairs = [];
 	    for (let x=0; x<arrayOfWords.length; x++){
 	      let wordRhymes = pronouncing.rhymes(arrayOfWords[x]);
 	      for (let y=(x+1); y<arrayOfWords.length; y++) {
@@ -53,23 +54,27 @@ Template.test.events({
 						secondWord = arrayOfWords[y];
 					}
         }
+				pairs.push([firstWord, secondWord]);
     	}
-			return [firstWord, secondWord];
+			console.log(pairs);
+			return pairs;
 		}
 		// let firstWord = brokenPhrase[0];
 		// let secondWord = brokenPhrase[1];
 
-		// slice an array into it's indicies
+		// slice an array between rhyming words
 
 		function arraySeparation (array, firstWord, secondWord){
-			for (let x=0; x<array.length; x++){
+			let x=0;
+			for (x; x<array.length; x++){
 				if (array[x] == firstWord){
-					array = array.slice(x);
+					array = array.slice(x+1);
 				}
 			}
 			for (let y =0; y<array.length; y++){
 				if (array[y] == secondWord){
-				array =	array.slice(0, y);
+				array =	array.slice(0, y+1);
+
 				}
 			}
 			console.log(array);
@@ -80,11 +85,9 @@ Template.test.events({
 		let brokenPhrase = breakPhrase(phrase);
 		let fullCount = counter(brokenPhrase);
 		console.log(fullCount);
+		console.log(locatedGroup);
 		let located = locater(brokenPhrase);
-		let firstWord = located[0];
-		let secondWord = located[1];
-		console.log(firstWord);
-		console.log(secondWord);
+		console.log(located);
 		let rhymeCount = counter(arraySeparation(brokenPhrase, firstWord, secondWord));
 		console.log(rhymeCount + " " + "between rhymes")
 
@@ -113,7 +116,7 @@ Template.test.events({
 		console.log(brokenPhrase.join(" "));
 
 		// $("#output").append(highlighter(phrase) + " ");
-    $("#output").append(brokenPhrase.join(" ") + " " + "has" + " " + count + " " + "syllables");
+    $("#output").append(brokenPhrase.join(" ") + " " + "has" + " " + fullCount + " " + "syllables");
     // $("#output").append(" " + count);
 
 

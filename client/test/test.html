@@ -1,12 +1,23 @@
 <template name = "test">
 
-  <h1>Type a phrase</h1>
-  <form class="locaterCounter">
-      <textarea id="fullPhrase" rows="4" cols="50"></textarea>
-      <button id="rhyme" type="submit">Let's Locate</button>
-    </form>
+  <div class = "row">
+    <!-- spacer div -->
+    <div class = "col-xs-1">
+    </div>
 
-  <ul id="output">
-  </ul>
+    <!-- enter a phrase -->
+    <div class="col-xs-5">
+    <h1>Type a phrase</h1>
+    <form class="locaterCounter">
+        <textarea id="fullPhrase" rows="4" cols="auto"></textarea>
+        <button id="rhyme" type="submit">Let's Locate</button>
+      </form>
+    </div>
+    <!-- phrase output -->
+    <div class="col-xs-6">
+      <ul id="output">
+      </ul>
+    </div>
 
+</div>
 </template>

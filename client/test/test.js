@@ -40,7 +40,7 @@ Template.test.events({
     }
 
 		// Locate the rhyming words
-		function locater(arrayOfWords){
+		function findPairs(arrayOfWords){
 			// let firstWord= '';
 			// let secondWord= '';
 			let pairs = [];
@@ -55,7 +55,6 @@ Template.test.events({
         }
 
     	}
-			console.log(pairs);
 			return pairs;
 		}
 		// let firstWord = brokenPhrase[0];
@@ -84,8 +83,8 @@ Template.test.events({
 		let brokenPhrase = breakPhrase(phrase);
 		let fullCount = counter(brokenPhrase);
 		console.log(fullCount);
-		let located = locater(brokenPhrase);
-		console.log(located);
+		let pairs = findPairs(brokenPhrase);
+		console.log(pairs);
 		// let rhymeCount = counter(arraySeparation(brokenPhrase, firstWord, secondWord));
 		// console.log(rhymeCount + " " + "between rhymes")
 
@@ -111,7 +110,6 @@ Template.test.events({
 		// }
 
 		console.log(brokenPhrase);
-		console.log(brokenPhrase.join(" "));
 
 		// $("#output").append(highlighter(phrase) + " ");
     $("#output").append(brokenPhrase.join(" ") + " " + "has" + " " + fullCount + " " + "syllables");

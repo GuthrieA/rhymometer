@@ -4,7 +4,7 @@ Router.configure({
 });
 
 Router.route('/', function () {
-  this.render('rhymeTime');
+  this.render('test');
 });
 
 Router.route('/syllable-counter', function () {
@@ -20,5 +20,5 @@ Router.route('/locater', function () {
 });
 
 Router.route('/test', function () {
-  this.render('test');
+  this.render('rhymetime');
 });

@@ -94,7 +94,7 @@ Template.test.events({
 			}
 			else if (outputs.length>0){
 				for(let x=0; x<outputs.length; x++){
-					$("#output").append(outputs[x].join(" ") + "<br>" +"<br>" );
+					$("#output").append("<strong>" + counter(breakPhrase(outputs[x].join(" "))) + " " + "syllables</strong>" + " " + outputs[x].join(" ") + "<br>" +"<br>" );
 				}
 			}
 		}
@@ -105,7 +105,6 @@ Template.test.events({
 		console.log(fullCount);
 		let pairs = findPairs(brokenPhrase);
 		let outputs = delineate(brokenPhrase, pairs);
-		console.log(outputs);
 		outputConcatenate(outputs);
 		// $("#output").append(outputs.join(" "));
 		

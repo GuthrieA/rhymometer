@@ -12,7 +12,7 @@ Template.test.events({
 
 		// Remove punctuation
 		function breakPhrase(str){
-		let punctuationLess = str.replace(/['!"#$%&\\'()\*+,\-\.\/:;<=>?@\[\\\]\^_`{|}~']/g,"");
+		let punctuationLess = str.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '');
 		let breakLess = punctuationLess.replace(/\r?\n|\r/g, " ");
 		let lowerString = breakLess.toLowerCase();
 		let finalString = lowerString.replace(/\s{2,}/g," ");
@@ -45,7 +45,7 @@ Template.test.events({
 		    for (let x=0; x<arrayOfWords.length; x++){
 		      let wordRhymes = pronouncing.rhymes(arrayOfWords[x]);
 		      for (let y=(x+1); y<arrayOfWords.length; y++) {
-					if (doesRhyme(wordRhymes, arrayOfWords[y])){ /* || arrayOfWords[x] == arrayOfWords[y])*/
+					if (doesRhyme(wordRhymes, arrayOfWords[y]) ||(arrayOfWords[x] == arrayOfWords[y])){
 						// console.log(arrayOfWords[x]);
 						// console.log(arrayOfWords[y]);
 						pairs.push([arrayOfWords[x], arrayOfWords[y]]);
@@ -94,7 +94,9 @@ Template.test.events({
 			}
 			else if (outputs.length>0){
 				for(let x=0; x<outputs.length; x++){
-					$("#output").append("<strong>" + counter(breakPhrase(outputs[x].join(" "))) + " " + "syllables</strong>" + " " + outputs[x].join(" ") + "<br>" +"<br>" );
+					console.log(outputs);
+					$("#output").append("<strong>" + counter(breakPhrase(outputs[x].join(" "))) + "\
+					 " + "syllables</strong>" + " " + outputs[x].join(" ") + "<br>" +"<br>" );
 				}
 			}
 		}
@@ -102,7 +104,6 @@ Template.test.events({
 		// Run the functions
 		let brokenPhrase = breakPhrase(phrase);
 		let fullCount = counter(brokenPhrase);
-		console.log(fullCount);
 		let pairs = findPairs(brokenPhrase);
 		let outputs = delineate(brokenPhrase, pairs);
 		outputConcatenate(outputs);

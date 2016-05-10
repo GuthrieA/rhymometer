@@ -39,7 +39,7 @@ Template.test.events({
       return(false);
     }
 
-		// Locate the rhyming words
+		// Locate the rhyming pairs
 		function findPairs(arrayOfWords){
 			// let firstWord= '';
 			// let secondWord= '';
@@ -48,8 +48,8 @@ Template.test.events({
 	      let wordRhymes = pronouncing.rhymes(arrayOfWords[x]);
 	      for (let y=(x+1); y<arrayOfWords.length; y++) {
 					if (doesRhyme(wordRhymes, arrayOfWords[y])){ /* || arrayOfWords[x] == arrayOfWords[y])*/
-						console.log(arrayOfWords[x]);
-						console.log(arrayOfWords[y]);
+						// console.log(arrayOfWords[x]);
+						// console.log(arrayOfWords[y]);
 						pairs.push([arrayOfWords[x], arrayOfWords[y]]);
 					}
         }
@@ -57,14 +57,12 @@ Template.test.events({
     	}
 			return pairs;
 		}
-		// let firstWord = brokenPhrase[0];
-		// let secondWord = brokenPhrase[1];
 
-		// slice an array between rhyming words
 
-		function arraySeparation (array, firstWord, secondWord){
-			let x=0;
-			for (x; x<array.length; x++){
+		// Slice an array of syllables between rhyming words
+
+		function separate (array, firstWord, secondWord){
+			for (let x=0; x<array.length; x++){
 				if (array[x] == firstWord){
 					array = array.slice(x+1);
 				}
@@ -79,15 +77,27 @@ Template.test.events({
 			return array;
 		}
 
+		// Delineate the rhymes from the pairs
+		function delineate(array, pairsArray){
+			if (pairsArray.length>0){
+				for(let x=0; x<pairsArray.length; x++){
+				
+					separate(array, pairs[x][0], pairs[x][1]);
+			
+				}
+			}
+		}
+
 		// Run the functions
 		let brokenPhrase = breakPhrase(phrase);
 		let fullCount = counter(brokenPhrase);
 		console.log(fullCount);
 		let pairs = findPairs(brokenPhrase);
-		console.log(pairs);
-		// let rhymeCount = counter(arraySeparation(brokenPhrase, firstWord, secondWord));
-		// console.log(rhymeCount + " " + "between rhymes")
-
+		delineate(brokenPhrase, pairs);
+		
+		
+		// let rhymeCount = counter(Separate(brokenPhrase, pairs[0][0], pairs[0][1]));
+		// console.log(rhymeCount + " " + "between rhymes");
 
 
 

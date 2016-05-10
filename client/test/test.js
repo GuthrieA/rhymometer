@@ -12,7 +12,7 @@ Template.test.events({
 
 		// Remove punctuation
 		function breakPhrase(str){
-		let punctuationLess = str.replace(/[.,\/#?!$%\^&\*;:{}=\-_`~()]/g,"");
+		let punctuationLess = str.replace(/['!"#$%&\\'()\*+,\-\.\/:;<=>?@\[\\\]\^_`{|}~']/g,"");
 		let breakLess = punctuationLess.replace(/\r?\n|\r/g, " ");
 		let lowerString = breakLess.toLowerCase();
 		let finalString = lowerString.replace(/\s{2,}/g," ");
@@ -94,7 +94,7 @@ Template.test.events({
 			}
 			else if (outputs.length>0){
 				for(let x=0; x<outputs.length; x++){
-					$("#output").append(outputs[x].join(" "));
+					$("#output").append(outputs[x].join(" ") + "<br>" +"<br>" );
 				}
 			}
 		}

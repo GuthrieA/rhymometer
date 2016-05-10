@@ -29,38 +29,35 @@ Template.test.events({
 			}
 			return count;
 		}
-    // Test the rhymes
-    function doesRhyme(a, b){
-      for (let x=0; x<a.length; x++){
-        if (a[x] == b){
-          return(true);
-        }
-      }
-      return(false);
-    }
+   		 // Test the rhymes
+	    function doesRhyme(a, b){
+	      for (let x=0; x<a.length; x++){
+	        if (a[x] == b){
+	          return(true);
+	        }
+	      }
+      		return(false);
+    		}
 
 		// Locate the rhyming pairs
 		function findPairs(arrayOfWords){
-			// let firstWord= '';
-			// let secondWord= '';
 			let pairs = [];
-	    for (let x=0; x<arrayOfWords.length; x++){
-	      let wordRhymes = pronouncing.rhymes(arrayOfWords[x]);
-	      for (let y=(x+1); y<arrayOfWords.length; y++) {
+		    for (let x=0; x<arrayOfWords.length; x++){
+		      let wordRhymes = pronouncing.rhymes(arrayOfWords[x]);
+		      for (let y=(x+1); y<arrayOfWords.length; y++) {
 					if (doesRhyme(wordRhymes, arrayOfWords[y])){ /* || arrayOfWords[x] == arrayOfWords[y])*/
 						// console.log(arrayOfWords[x]);
 						// console.log(arrayOfWords[y]);
 						pairs.push([arrayOfWords[x], arrayOfWords[y]]);
 					}
-        }
+        		}
 
-    	}
+    		}
 			return pairs;
 		}
 
 
 		// Slice an array of syllables between rhyming words
-
 		function separate (array, firstWord, secondWord){
 			for (let x=0; x<array.length; x++){
 				if (array[x] == firstWord){
@@ -73,17 +70,31 @@ Template.test.events({
 
 				}
 			}
-			console.log(array);
+			// console.log(array);
+			// $("#output").append(array.join(" "));
 			return array;
 		}
 
-		// Delineate the rhymes from the pairs
+		// Delineate the rhymes from the pairs, return array of words between rhymes
 		function delineate(array, pairsArray){
+			let outputs=[];
 			if (pairsArray.length>0){
 				for(let x=0; x<pairsArray.length; x++){
 				
-					separate(array, pairs[x][0], pairs[x][1]);
+					outputs.push(separate(array, pairs[x][0], pairs[x][1]));
 			
+				}
+				return outputs;
+			}
+		}
+
+		function outputConcatenate(outputs){
+			if (outputs == undefined){
+				$("#output").append("There are no rhymes that I can see.");
+			}
+			else if (outputs.length>0){
+				for(let x=0; x<outputs.length; x++){
+					$("#output").append(outputs[x].join(" "));
 				}
 			}
 		}
@@ -93,7 +104,10 @@ Template.test.events({
 		let fullCount = counter(brokenPhrase);
 		console.log(fullCount);
 		let pairs = findPairs(brokenPhrase);
-		delineate(brokenPhrase, pairs);
+		let outputs = delineate(brokenPhrase, pairs);
+		console.log(outputs);
+		outputConcatenate(outputs);
+		// $("#output").append(outputs.join(" "));
 		
 		
 		// let rhymeCount = counter(Separate(brokenPhrase, pairs[0][0], pairs[0][1]));
@@ -119,10 +133,10 @@ Template.test.events({
 		// 	return newPhrase;
 		// }
 
-		console.log(brokenPhrase);
+		// console.log(brokenPhrase);
 
 		// $("#output").append(highlighter(phrase) + " ");
-    $("#output").append(brokenPhrase.join(" ") + " " + "has" + " " + fullCount + " " + "syllables");
+    // $("#output").append(brokenPhrase.join(" ") + " " + "has" + " " + fullCount + " " + "syllables");
     // $("#output").append(" " + count);
 
 

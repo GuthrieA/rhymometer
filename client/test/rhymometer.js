@@ -49,7 +49,7 @@ Template.test.events({
 		    for (let x=0; x<arrayOfWords.length; x++){
 		      let wordRhymes = pronouncing.rhymes(arrayOfWords[x]);
 		      for (let y=(x+1); y<arrayOfWords.length; y++) {
-					if (doesRhyme(wordRhymes, arrayOfWords[y]) /*||(arrayOfWords[x] == arrayOfWords[y])*/){
+					if (doesRhyme(wordRhymes, arrayOfWords[y]) ||(arrayOfWords[x] == arrayOfWords[y])){
 						pairs.push([arrayOfWords[x], arrayOfWords[y]]);
 					}
         		}

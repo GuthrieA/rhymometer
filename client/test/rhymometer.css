@@ -22,9 +22,14 @@ body {
 
 }
 
+#rhymeButton{
+	text-align:center;
+}
+
 .myText{
 	height: 300px;
 	min-width: 400px;
 	max-width:400px;
 }
+
 

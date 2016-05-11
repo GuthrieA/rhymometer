@@ -7,6 +7,10 @@ Template.test.events({
 
 		let wordSyllables = 0;
 		let count = 0;
+		
+
+
+
 		// The input phrase
 		const phrase = template.find('#fullPhrase').value;
 
@@ -46,8 +50,6 @@ Template.test.events({
 		      let wordRhymes = pronouncing.rhymes(arrayOfWords[x]);
 		      for (let y=(x+1); y<arrayOfWords.length; y++) {
 					if (doesRhyme(wordRhymes, arrayOfWords[y]) ||(arrayOfWords[x] == arrayOfWords[y])){
-						// console.log(arrayOfWords[x]);
-						// console.log(arrayOfWords[y]);
 						pairs.push([arrayOfWords[x], arrayOfWords[y]]);
 					}
         		}
@@ -59,14 +61,18 @@ Template.test.events({
 
 		// Slice an array of syllables between rhyming words
 		function separate (array, firstWord, secondWord){
+			console.log(firstWord);
+			console.log(secondWord);
 			for (let x=0; x<array.length; x++){
 				if (array[x] == firstWord){
-					array = array.slice(x+1);
+					array = array.slice(x);
+					break
 				}
 			}
-			for (let y =0; y<array.length; y++){
+			for (let y =array.length; y>=0; y--){
 				if (array[y] == secondWord){
-				array =	array.slice(0, y+1);
+					array =	array.slice(0, y+1);
+					break
 
 				}
 			}
@@ -101,11 +107,16 @@ Template.test.events({
 					console.log(partialCount);
 					if (partialCount >= 0){
 						$("#output").append("<strong>" + partialCount + "\
-					 	" + "syllable(s)</strong>" + " " + outputs[x].join(" ") + "<br>" +"<br>" );
+					 	" + "syllable(s) from</strong>" + "\
+					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>to</b>" + "\
+					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "</em>" + "<br>" +"<br>" );
 					}
 					else{
+						console.log((breakPhrase(outputs[x].join(" ")).length))
 						$("#output").append("<strong>" + "\
-					 	" + "There seems to be a false word in</strong>" + " " + outputs[x].join(" ") + "<br>" +"<br>" );
+					 	" + "There seems to be a false word between</strong>" + "\
+					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>and</b>" + "\
+					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "</em>" + "<br>" +"<br>" );
 					}
 				}
 			}

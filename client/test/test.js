@@ -49,7 +49,7 @@ Template.test.events({
 		    for (let x=0; x<arrayOfWords.length; x++){
 		      let wordRhymes = pronouncing.rhymes(arrayOfWords[x]);
 		      for (let y=(x+1); y<arrayOfWords.length; y++) {
-					if (doesRhyme(wordRhymes, arrayOfWords[y]) ||(arrayOfWords[x] == arrayOfWords[y])){
+					if (doesRhyme(wordRhymes, arrayOfWords[y]) /*||(arrayOfWords[x] == arrayOfWords[y])*/){
 						pairs.push([arrayOfWords[x], arrayOfWords[y]]);
 					}
         		}
@@ -61,8 +61,6 @@ Template.test.events({
 
 		// Slice an array of syllables between rhyming words
 		function separate (array, firstWord, secondWord){
-			console.log(firstWord);
-			console.log(secondWord);
 			for (let x=0; x<array.length; x++){
 				if (array[x] == firstWord){
 					array = array.slice(x);

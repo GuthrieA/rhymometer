@@ -1,0 +1,57 @@
+<head>
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+<title>RhymOmeter</title>
+</head>
+
+<template name = "rhymometer">
+
+      <div class="navbar navbar-inverse">
+      <div id=icon>
+        <img src = "./wrenchleaf.png">
+      </div>
+        <div id="title">
+        <h2>The Rhymometer</h2>
+        </div>
+    </div>
+
+    <div class="container">
+
+      <div id="labels" class="row">
+
+        <!-- spacer div -->
+        <!-- div class="col-md-1">
+        </div> -->
+
+        <!-- column 1 -->
+        <!-- enter a phrase -->
+        <div class =  "col-md-5 col-xs-12">
+        <form class = "locaterCounter">
+            <h4>It's rhyme time, type poetry here:</h4>
+          
+            <textarea id="fullPhrase" class="myText" placeholder="Let's make some poetry!"></textarea>
+
+            <div id = "rhymeButton">
+            <button class="btn .btn-block" type="submit">Show me the rhymes!</button>
+            </div>
+
+          </form>
+          </div>
+      
+
+        <!-- spacer div -->
+        <div class="col-md-1">
+        </div>
+
+        <!-- column 2 -->
+        <div id="rightLabel" class="col-md-5 col-xs-12">
+        <h4><b>Analysis:</b></h4>
+        <p id="output">
+        </p>
+        </div>
+      </div>
+
+    </div>
+      <div class="navbar navbar-inverse navbar-fixed-bottom">
+    </div>
+  
+</template>

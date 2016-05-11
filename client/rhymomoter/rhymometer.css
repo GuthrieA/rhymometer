@@ -1,10 +1,19 @@
 body {
 	background-color: lightblue;
+	min-height: 500px;
 }
+
+h2 {
+  font: 400 120px/0.8 'Great Vibes', Helvetica, sans-serif;
+  color: #fff;
+  text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
+}
+
 #locaterPhrase {
     height:200px;
     font-size:14pt;
     font: 13px sans-serif;
+
 }
 
 #output {
@@ -17,7 +26,7 @@ body {
 }
 
 #labels{
-	padding-top: 100px;
+	padding-top: 50px;
 	background-color: lightblue;
 
 }
@@ -26,10 +35,15 @@ body {
 	text-align:center;
 }
 
-.myText{
-	height: 300px;
-	min-width: 400px;
-	max-width:400px;
+#fullPhrase{
 }
 
+.myText{
+	height: 300px;
+	width: 100%;
+}
+
+.navbar{
+	background-color: maroon;
+}
 

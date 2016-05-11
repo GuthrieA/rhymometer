@@ -1,6 +1,6 @@
 let pronouncing = require('pronouncing/build/pronouncing-browser');
 
-Template.test.events({
+Template.rhymometer.events({
 	'submit .locaterCounter': function(event, template) {
 		event.preventDefault();
 		$("#output").empty();
@@ -103,16 +103,22 @@ Template.test.events({
 					let partialCount = counter(breakPhrase(outputs[x].join(" ")));
 					console.log(outputs);
 					console.log(partialCount);
-					if (partialCount >= 0){
+					if (partialCount == 1){
 						$("#output").append("<strong>" + partialCount + "\
-					 	" + "syllable(s) from</strong>" + "\
+					 	" + "syllable from</strong>" + "\
+					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>to</b>" + "\
+					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "</em>" + "<br>" +"<br>" );
+					}
+					else if (partialCount > 1){
+						$("#output").append("<strong>" + partialCount + "\
+					 	" + "syllables from</strong>" + "\
 					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>to</b>" + "\
 					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "</em>" + "<br>" +"<br>" );
 					}
 					else{
 						console.log((breakPhrase(outputs[x].join(" ")).length))
 						$("#output").append("<strong>" + "\
-					 	" + "There seems to be a false word between</strong>" + "\
+					 	" + "There seems to be a jibberish between</strong>" + "\
 					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>and</b>" + "\
 					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "</em>" + "<br>" +"<br>" );
 					}

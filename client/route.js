@@ -1,5 +1,5 @@
 
 
 Router.route('/', function () {
-  this.render('test');
+  this.render('rhymometer');
 });

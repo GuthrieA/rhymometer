@@ -87,16 +87,26 @@ Template.test.events({
 				return outputs;
 			}
 		}
-
+		// Print the outputs to the view
 		function outputConcatenate(outputs){
 			if (outputs == undefined){
 				$("#output").append("There are no rhymes that I can see.");
 			}
+
 			else if (outputs.length>0){
+				
 				for(let x=0; x<outputs.length; x++){
+					let partialCount = counter(breakPhrase(outputs[x].join(" ")));
 					console.log(outputs);
-					$("#output").append("<strong>" + counter(breakPhrase(outputs[x].join(" "))) + "\
-					 " + "syllables</strong>" + " " + outputs[x].join(" ") + "<br>" +"<br>" );
+					console.log(partialCount);
+					if (partialCount >= 0){
+						$("#output").append("<strong>" + partialCount + "\
+					 	" + "syllable(s)</strong>" + " " + outputs[x].join(" ") + "<br>" +"<br>" );
+					}
+					else{
+						$("#output").append("<strong>" + "\
+					 	" + "There seems to be a false word in</strong>" + " " + outputs[x].join(" ") + "<br>" +"<br>" );
+					}
 				}
 			}
 		}

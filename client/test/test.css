@@ -1,11 +1,30 @@
-#locaterPhrase
-{
+body {
+	background-color: lightblue;
+}
+#locaterPhrase {
     height:200px;
     font-size:14pt;
     font: 13px sans-serif;
 }
 
-#output
-{
-  padding-top: 65px;
+#output {
 }
+
+#title {
+	text-align: center;
+	background-color: maroon;
+	color:white;
+}
+
+#labels{
+	padding-top: 100px;
+	background-color: lightblue;
+
+}
+
+.myText{
+	height: 300px;
+	min-width: 400px;
+	max-width:400px;
+}
+

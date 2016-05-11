@@ -1,23 +1,39 @@
 <template name = "test">
 
-  <div class = "row">
-    <!-- spacer div -->
-    <div class = "col-xs-1">
+  <div id="container">
+
+    <div id="title" class="row">
+    <h1>The Rhymometer</h1>
     </div>
 
-    <!-- enter a phrase -->
-    <div class="col-xs-5">
-    <h1>Type a phrase</h1>
-    <form class="locaterCounter">
-        <textarea id="fullPhrase" rows="4" cols="auto"></textarea>
-        <button id="rhyme" type="submit">Let's Locate</button>
-      </form>
-    </div>
-    <!-- phrase output -->
-    <div class="col-xs-6">
-      <ul id="output">
-      </ul>
-    </div>
+    <div id="labels" class="row">
 
-</div>
+      <!-- spacer div -->
+      <div class="col-md-1">
+      </div>
+
+      <!-- column 1 -->
+      <!-- enter a phrase -->
+      
+      <form class="locaterCounter col-md-5 col-xs-12">
+        
+          <textarea id="fullPhrase" class="myText" placeholder="Input your rhymes"></textarea>
+          <br>
+          <button id="rhyme" type="submit">Let's Locate</button>
+
+        </form>
+    
+
+      <!-- spacer div -->
+      <div class="col-md-1">
+      </div>
+
+      <!-- column 2 -->
+      <div id="rightLabel" class="col-md-5 col-xs-12">
+      <p><b>Now find your meter:</b></p>
+      <p id="output">
+      </p>
+      </div>
+    </div>
+  </div>
 </template>

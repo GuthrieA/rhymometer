@@ -1,18 +1,22 @@
 <head>
-<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-<title>RhymOmeter</title>
+<link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+<title>Rhymometer</title>
 </head>
 
 <body background="sunsetTree.JPG">
 </body>
 
 <template name = "rhymometer">
-      <div class="navbar">
-      <div>
-        <img id=icon src = "wrenchLeaf.png">
-      </div>
-        <div id="title">
+      <div class="navbar top">
+      <div class = "row">
+      
+      
+        <img id=icon class="col-xs-2" src = "wrenchLeaf.png">
+        
+
+        <div id=title class="col-xs-10">
         <h2>The Rhymometer</h2>
+        </div>
         </div>
     </div>
 
@@ -28,7 +32,7 @@
         <!-- enter a phrase -->
         <div class =  "col-md-5 col-xs-12">
         <form class = "locaterCounter">
-            <h4>It's rhyme time, type poetry here:</h4>
+            <h4>It's rhyme time. Type poetry here:</h4>
           
             <textarea id="fullPhrase" class="myText" placeholder="Let's make some poetry!"></textarea>
 

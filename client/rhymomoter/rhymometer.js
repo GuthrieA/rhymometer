@@ -5,6 +5,8 @@ Template.rhymometer.events({
 		event.preventDefault();
 		$("#output").empty();
 
+		
+		// Initial declarations
 		let wordSyllables = 0;
 		let count = 0;
 		
@@ -94,7 +96,7 @@ Template.rhymometer.events({
 		// Print the outputs to the view
 		function outputConcatenate(outputs){
 			if (outputs == undefined){
-				$("#output").append("There are no rhymes that I can see.");
+				$("#output").append("There are no rhymes that I can see in that phrase.");
 			}
 
 			else if (outputs.length>0){
@@ -104,23 +106,23 @@ Template.rhymometer.events({
 					console.log(outputs);
 					console.log(partialCount);
 					if (partialCount == 1){
-						$("#output").append("<strong>" + partialCount + "\
-					 	" + "syllable from</strong>" + "\
+						$("#output").append("<strong><mark>" + partialCount + "\
+					 	" + "syllable from" + "\
 					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>to</b>" + "\
-					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "</em>" + "<br>" +"<br>" );
+					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "</mark></strong>" + "</em>" + "<br>" +"<br>" );
 					}
 					else if (partialCount > 1){
-						$("#output").append("<strong>" + partialCount + "\
-					 	" + "syllables from</strong>" + "\
+						$("#output").append("<strong><mark>" + partialCount + "\
+					 	" + "syllables from" + "\
 					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>to</b>" + "\
-					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "</em>" + "<br>" +"<br>" );
+					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "</mark></strong>" + "</em>" + "<br>" +"<br>" );
 					}
 					else{
 						console.log((breakPhrase(outputs[x].join(" ")).length))
-						$("#output").append("<strong>" + "\
-					 	" + "There seems to be a jibberish between</strong>" + "\
+						$("#output").append("<strong><mark>" + "\
+					 	" + "There seems to be a jibberish between" + "\
 					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>and</b>" + "\
-					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "</em>" + "<br>" +"<br>" );
+					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "</mark></strong>" + "</em>" + "<br>" +"<br>" );
 					}
 				}
 			}

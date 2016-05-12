@@ -34,7 +34,7 @@
         <form class = "locaterCounter">
             <h4>It's rhyme time. Type poetry here:</h4>
           
-            <textarea id="fullPhrase" class="myText" placeholder="Let's make some poetry!"></textarea>
+            <textarea id="fullPhrase" class="myText" placeholder="Type a phrase with a rhyme or two. It would take some days, but no time for you."></textarea>
 
             <div id = "rhymeButton">
             <button class="btn .btn-block" type="submit">Show me the rhymes!</button>
@@ -50,9 +50,25 @@
 
         <!-- column 2 -->
         <div id="rightLabel" class="col-md-5 col-xs-12">
-        <h4><b>Analysis:</b></h4>
-        <p id="output">
-        </p>
+        <h4>Analysis:</h4>
+        
+        <div id="output" class="output">
+          <p><strong>Your output will appear here. Like this: <br> <br> 
+              <mark>
+            4 syllables from  <em> a </em> to <em> a </em> <br> <br>
+
+            11  syllables from  <em> phrase </em> to <em> days </em> <br> <br>
+
+            11  syllables from  <em> rhyme </em> to <em> time </em> <br> <br>
+
+            11  syllables from <em> or </em> to <em> for </em> <br> <br>
+
+            11  syllables from  <em> two </em> to  <em> you </em> <br> <br>
+            </mark>
+
+          </strong></p>
+          <p id="output"></p>
+        </div>
         </div>
       </div>
 

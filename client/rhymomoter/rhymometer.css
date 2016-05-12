@@ -15,6 +15,7 @@ h2 {
 }
 
 #output {
+	color: white;
 }
 
 #title {
@@ -48,11 +49,23 @@ h2 {
 	width: 100%;
 	min-width:100%;
 	max-width: 100%;
+	color:black;
+	background-color:#ebebfa;
 }
 
 .navbar-fixed-bottom{
 	background-color: black;
 	opacity: .5;
+}
+
+.output{
+	height:400px;
+	width:100%;
+	border:1px solid #fff;
+	font:26px Georgia, Garamond, Serif;
+	overflow:auto;
+	text-align: center;
+
 }
 
 .top{
@@ -64,6 +77,33 @@ h2 {
 	margin-right: 0px;
 }
 
+#rightLabel h4 {
+	text-align:center;
+	padding-left:10px;
+	padding-right:10px;
+}
+
 #labels h4{
 	color:white;
+	text-shadow: 2px 2px black;
+}
+
+::-webkit-input-placeholder {
+   color: red;
+   font:26px Georgia, Garamond, Serif;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: red;  
+   font:26px Georgia, Garamond, Serif;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: red; 
+   font:26px Georgia, Garamond, Serif;
+}
+
+:-ms-input-placeholder {  
+   color: red;  
+   font:26px Georgia, Garamond, Serif;
 }

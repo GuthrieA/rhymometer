@@ -1,5 +1,6 @@
 body {
 	padding-bottom:100px;
+	border-bottom: 0;
 }
 
 mark {
@@ -40,6 +41,13 @@ h2 {
 	width: auto;
 }
 
+.btn {
+	color: rgba(3, 2, 15, 1);
+	width: 100%;
+	font:26px Georgia, Garamond, Serif;
+	background-color:white;
+}
+
 .myText{
 	height: 400px;
 	max-height:400px;
@@ -50,41 +58,42 @@ h2 {
 	font:26px Georgia, Garamond, Serif;
 	padding-top:20px;
 	padding-left:20px;
-	background-color: rgba(22, 31, 64, .75);
+	border: 0;
+	background-color: rgba(148, 163, 186, .3);
 }
 
 .navbar-fixed-bottom{
-	background-color: #161F40;
-	opacity: .5;
-}
+	background-color: rgba(61, 76, 115, .5);
+	border-top: 0;
 
-.output{
+}
+.output {
 	height:400px;
 	width:100%;
-	border:1px solid #fff;
+	border:0px;
 	padding-top: 20px;
 	padding-right: 2px;
 	padding-left: 2px;
 	font:26px Georgia, Garamond, Serif;
 	overflow:auto;
 	text-align: center;
+	background-color: rgba(118, 134, 162, .9)
 
 }
 
 .top{
-	background-color: #161F40;
-	opacity: 1;
+	background-color: rgba(61, 76, 115, .5);
 }
 
 .row{
 	margin-right: 0px;
 }
 
-#rightLabel h4 {
+/*#rightLabel h4 {
 	text-align:center;
 	padding-left:10px;
 	padding-right:10px;
-}
+}*/
 
 #labels h4{
 	color:white;

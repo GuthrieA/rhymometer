@@ -92,7 +92,7 @@ Template.rhymometer.events({
 		// Print the outputs to the view
 		function outputConcatenate(outputs){
 			if (outputs == undefined){
-				$("#output").append("<strong>There are no rhymes that I can see in that phrase.</strong>");
+				$("#output").append("There are no rhymes that I can see in that phrase.");
 			}
 
 			else if (outputs.length>0){
@@ -100,18 +100,18 @@ Template.rhymometer.events({
 				for(let x=0; x<outputs.length; x++){
 					let partialCount = counter(breakPhrase(outputs[x].join(" ")));
 					if (partialCount > 0){
-						$("#output").append("<strong><mark>" + partialCount + "\
+						$("#output").append(partialCount + "\
 					 	" + "syllables from" + "\
-					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>to</b>" + "\
+					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "to" + "\
 					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "\
-					 	  </mark></strong>" + "</em>" + "<br>" +"<br>" );
+					 	  " + "</em>" + "<br>" +"<br>" );
 					}
 					else{
-						$("#output").append("<strong><mark>" + "\
+						$("#output").append("\
 					 	" + "Jibberish between" + "\
-					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>and</b>" + "\
+					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "and" + "\
 					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "\
-					 	  </mark></strong>" + "</em>" + "<br>" +"<br>" );
+					 	  " + "</em>" + "<br>" +"<br>" );
 					}
 				}
 			}

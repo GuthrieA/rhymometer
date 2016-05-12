@@ -92,7 +92,7 @@ Template.rhymometer.events({
 		// Print the outputs to the view
 		function outputConcatenate(outputs){
 			if (outputs == undefined){
-				$("#output").append("There are no rhymes that I can see in that phrase.");
+				$("#output").append("<mark>There are no rhymes that I can see in that phrase.</mark>");
 			}
 
 			else if (outputs.length>0){
@@ -115,7 +115,7 @@ Template.rhymometer.events({
 					}
 					else{
 						$("#output").append("<strong><mark>" + "\
-					 	" + "There seems to be a jibberish between" + "\
+					 	" + "Jibberish between" + "\
 					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>and</b>" + "\
 					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "\
 					 	  </mark></strong>" + "</em>" + "<br>" +"<br>" );

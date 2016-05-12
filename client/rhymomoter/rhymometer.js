@@ -102,16 +102,16 @@ Template.rhymometer.events({
 					if (partialCount > 0){
 						$("#output").append(partialCount + "\
 					 	" + "syllables from" + "\
-					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "to" + "\
-					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "\
-					 	  " + "</em>" + "<br>" +"<br>" );
+					 	 " + "<em><b>" + breakPhrase(outputs[x].join(" "))[0] + "</b></em>" + " " + "to" + "\
+					 	  " + "<em><b>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "\
+					 	  " + "</b></em>" + "<br>" +"<br>" );
 					}
 					else{
 						$("#output").append("\
-					 	" + "Jibberish between" + "\
-					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "and" + "\
-					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "\
-					 	  " + "</em>" + "<br>" +"<br>" );
+					 	" + "Gibberish between" + "\
+					 	 " + "<em><b>" + breakPhrase(outputs[x].join(" "))[0] + "</b></em>" + " " + "and" + "\
+					 	  " + "<em><b>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "\
+					 	  " + "</b></em>" + "<br>" +"<br>" );
 					}
 				}
 			}

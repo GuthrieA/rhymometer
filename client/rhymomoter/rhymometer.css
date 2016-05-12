@@ -72,11 +72,9 @@ h2 {
 	width:100%;
 	border:0px;
 	padding-top: 20px;
-	padding-right: 2px;
-	padding-left: 2px;
+	padding-left: 20px;
 	font:26px Georgia, Garamond, Serif;
 	overflow:auto;
-	text-align: center;
 	background-color: rgba(118, 134, 162, .9)
 
 }

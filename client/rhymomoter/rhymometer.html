@@ -7,40 +7,37 @@
 </body>
 
 <template name = "rhymometer">
-      <div class="navbar top">
-      <div class = "row">
-      
-      
-        <img id=icon class="col-xs-2" src = "wrenchLeaf.png">
-        
-
-        <div id=title class="col-xs-10">
-        <h2>The Rhymometer</h2>
-        </div>
-        </div>
+  <div class="navbar top">
+    <div class = "row">
+      <!-- <img id=icon class="col-xs-2" src = "wrenchLeaf.png"> -->
+      <div id=title class="col-xs-12">
+          <h2>The Rhymometer</h2>
+      </div>
     </div>
+  </div>
 
-    <div class="container">
+  <div class="container">
 
-      <div id="labels" class="row">
+    <div id="labels" class="row">
 
-        <!-- spacer div -->
-        <!-- div class="col-md-1">
-        </div> -->
+      <!-- spacer div -->
+      <!-- div class="col-md-1">
+      </div> -->
 
-        <!-- column 1 -->
-        <!-- enter a phrase -->
-        <div class =  "col-md-5 col-xs-12">
+      <!-- column 1 -->
+      <!-- enter a phrase -->
+      <div class =  "col-md-5 col-xs-12">
         <form class = "locaterCounter">
-            <h4>It's rhyme time. Type poetry here:</h4>
+          <h4>It's rhyme time. Type poetry here:</h4>
           
             <textarea id="fullPhrase" class="myText" placeholder="Type a phrase with a rhyme or two. It would take some days, but no time for you."></textarea>
 
+
             <div id = "rhymeButton">
-            <button class="btn .btn-block" type="submit">Show me the rhymes!</button>
+              <button class="btn .btn-block" type="submit">Show me the rhymes!</button>
             </div>
 
-          </form>
+        </form>
           </div>
       
 
@@ -53,7 +50,7 @@
         <h4>Analysis:</h4>
         
         <div id="output" class="output">
-          <p><strong>Your output will appear here. Like this: <br> <br> 
+          <p><strong>Your output will appear like this: <br> <br> 
               <mark>
             4 syllables from  <em> a </em> to <em> a </em> <br> <br>
 

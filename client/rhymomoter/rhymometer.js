@@ -14,12 +14,12 @@ Template.rhymometer.events({
 
 		// Remove punctuation
 		function breakPhrase(str){
-		let punctuationLess = str.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '');
-		let breakLess = punctuationLess.replace(/\r?\n|\r/g, " ");
-		let lowerString = breakLess.toLowerCase();
-		let finalString = lowerString.replace(/\s{2,}/g," ");
-		let arrayOfFinalString = finalString.split(" ");
-		return arrayOfFinalString;
+			let punctuationLess = str.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '');
+			let breakLess = punctuationLess.replace(/\r?\n|\r/g, " ");
+			let lowerString = breakLess.toLowerCase();
+			let finalString = lowerString.replace(/\s{2,}/g," ");
+			let arrayOfFinalString = finalString.split(" ");
+			return arrayOfFinalString;
 		}
 
 		// Count the syllables
@@ -50,9 +50,9 @@ Template.rhymometer.events({
 					if (doesRhyme(wordRhymes, arrayOfWords[y]) ||(arrayOfWords[x] == arrayOfWords[y])){
 						pairs.push([arrayOfWords[x], arrayOfWords[y]]);
 					}
-        		}
+				}
 
-    		}
+			}
 			return pairs;
 		}
 
@@ -92,21 +92,14 @@ Template.rhymometer.events({
 		// Print the outputs to the view
 		function outputConcatenate(outputs){
 			if (outputs == undefined){
-				$("#output").append("<mark>There are no rhymes that I can see in that phrase.</mark>");
+				$("#output").append("<strong>There are no rhymes that I can see in that phrase.</strong>");
 			}
 
 			else if (outputs.length>0){
 				
 				for(let x=0; x<outputs.length; x++){
 					let partialCount = counter(breakPhrase(outputs[x].join(" ")));
-					if (partialCount == 1){
-						$("#output").append("<strong><mark>" + partialCount + "\
-					 	" + "syllable from" + "\
-					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>to</b>" + "\
-					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "\
-					 	  </mark></strong>" + "</em>" + "<br>" +"<br>" );
-					}
-					else if (partialCount > 1){
+					if (partialCount > 0){
 						$("#output").append("<strong><mark>" + partialCount + "\
 					 	" + "syllables from" + "\
 					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>to</b>" + "\

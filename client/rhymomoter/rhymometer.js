@@ -9,10 +9,6 @@ Template.rhymometer.events({
 		// Initial declarations
 		let wordSyllables = 0;
 		let count = 0;
-		
-
-
-
 		// The input phrase
 		const phrase = template.find('#fullPhrase').value;
 
@@ -103,26 +99,26 @@ Template.rhymometer.events({
 				
 				for(let x=0; x<outputs.length; x++){
 					let partialCount = counter(breakPhrase(outputs[x].join(" ")));
-					console.log(outputs);
-					console.log(partialCount);
 					if (partialCount == 1){
 						$("#output").append("<strong><mark>" + partialCount + "\
 					 	" + "syllable from" + "\
 					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>to</b>" + "\
-					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "</mark></strong>" + "</em>" + "<br>" +"<br>" );
+					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "\
+					 	  </mark></strong>" + "</em>" + "<br>" +"<br>" );
 					}
 					else if (partialCount > 1){
 						$("#output").append("<strong><mark>" + partialCount + "\
 					 	" + "syllables from" + "\
 					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>to</b>" + "\
-					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "</mark></strong>" + "</em>" + "<br>" +"<br>" );
+					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "\
+					 	  </mark></strong>" + "</em>" + "<br>" +"<br>" );
 					}
 					else{
-						console.log((breakPhrase(outputs[x].join(" ")).length))
 						$("#output").append("<strong><mark>" + "\
 					 	" + "There seems to be a jibberish between" + "\
 					 	 " + "<em>" + breakPhrase(outputs[x].join(" "))[0] + "</em>" + " " + "<b>and</b>" + "\
-					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "</mark></strong>" + "</em>" + "<br>" +"<br>" );
+					 	  " + "<em>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "\
+					 	  </mark></strong>" + "</em>" + "<br>" +"<br>" );
 					}
 				}
 			}
@@ -134,43 +130,5 @@ Template.rhymometer.events({
 		let pairs = findPairs(brokenPhrase);
 		let outputs = delineate(brokenPhrase, pairs);
 		outputConcatenate(outputs);
-		// $("#output").append(outputs.join(" "));
-		
-		
-		// let rhymeCount = counter(Separate(brokenPhrase, pairs[0][0], pairs[0][1]));
-		// console.log(rhymeCount + " " + "between rhymes");
-
-
-
-
-		// Highlight the rhymes
-		// function highlighter(unhighlightedPhrase){
-		// 		if (unhighlightedPhrase == "fox"){
-		// 			unhighlightedPhrase.replace(/fox/,"<span>fox</span>");
-		// 	}
-		// }
-
-		// Put it back together without the punctuation
-		// function putItTogether(arrayPhrase){
-		// 	let newPhrase = [];
-		// 	for (let x = 0; x<arrayPhrase.length; x++){
-		// 		newPhrase.push(arrayPhrase[x] + " ");
-		// 	}
-		// 	console.log(newPhrase)
-		// 	return newPhrase;
-		// }
-
-		// console.log(brokenPhrase);
-
-		// $("#output").append(highlighter(phrase) + " ");
-    // $("#output").append(brokenPhrase.join(" ") + " " + "has" + " " + fullCount + " " + "syllables");
-    // $("#output").append(" " + count);
-
-
-
-
-		// let syllables = pronouncing.syllableCount(pronouncing.phonesForWord($('phrase').val())[0]);
-		// 	$("#output").append(syllables);
-		// 	console.log(syllables);
 	}
 });

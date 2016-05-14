@@ -45,7 +45,14 @@ h2 {
 	color: rgba(3, 2, 15, 1);
 	width: 100%;
 	font:26px Georgia, Garamond, Serif;
-	background-color:white;
+	background-color: white;
+	border-color: black;
+}
+
+.btn:hover {
+	background-color: rgba(76, 255, 146, .3);
+	color: white;
+
 }
 
 .myText{

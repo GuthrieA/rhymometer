@@ -43,17 +43,18 @@ h2 {
 
 .btn {
 	color: rgba(3, 2, 15, 1);
-	width: 100%;
+	width: 90%;
 	font:26px Georgia, Garamond, Serif;
 	background-color:white;
+	float: left;
 }
 
 .myText{
 	height: 400px;
 	max-height:400px;
-	width: 100%;
-	min-width:100%;
-	max-width: 100%;
+	width: 90%;
+	min-width:90%;
+	max-width: 90%;
 	color:white;
 	font:26px Georgia, Garamond, Serif;
 	padding-top:20px;
@@ -62,6 +63,7 @@ h2 {
 	padding-bottom:20px;
 	border: 0;
 	background-color: rgba(148, 163, 186, .3);
+	margin: 0 auto;
 }
 
 .navbar-fixed-bottom{
@@ -71,7 +73,7 @@ h2 {
 }
 .output {
 	height:400px;
-	width:100%;
+	width:90%;
 	border:0px;
 	padding-top: 20px;
 	padding-left: 20px;
@@ -79,7 +81,7 @@ h2 {
 	padding-bottom:20px;
 	font:26px Georgia, Garamond, Serif;
 	overflow:auto;
-	background-color: rgba(118, 134, 162, .9)
+	background-color: rgba(118, 134, 162, .9);
 
 }
 

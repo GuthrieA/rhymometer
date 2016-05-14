@@ -53,33 +53,25 @@ Template.rhymometer.events({
 				}
 
 			}
-			console.log(pairs);
 			return pairs;
 		}
 
 
 		// Slice an array of syllables between rhyming words
 		function separate (array, firstWord, secondWord){
-			let x = 0;
-			for (;x<array.length; x++){
-				console.log(x);
+			for (let x = 0;x<array.length; x++){
 				if (array[x] == firstWord){
 					array = array.slice(x);
 					break
 				}
 			}
-			for (let y =1; y<array.length; y++){
-
+			for (let y = 1; y<array.length; y++){
 				if (array[y] == secondWord){
 					array =	array.slice(0, y+1);
 					break
-
 				}
 			}
-			// console.log(array);
-			// $("#output").append(array.join(" "));
-			return array;
-			console.log(array);
+			return array;	
 		}
 
 		// Delineate the rhymes from the pairs, return array of words between rhymes

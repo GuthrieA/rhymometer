@@ -58,6 +58,8 @@ h2 {
 	font:26px Georgia, Garamond, Serif;
 	padding-top:20px;
 	padding-left:20px;
+	padding-right:20px;
+	padding-bottom:20px;
 	border: 0;
 	background-color: rgba(148, 163, 186, .3);
 }
@@ -73,6 +75,8 @@ h2 {
 	border:0px;
 	padding-top: 20px;
 	padding-left: 20px;
+	padding-right:20px;
+	padding-bottom:20px;
 	font:26px Georgia, Garamond, Serif;
 	overflow:auto;
 	background-color: rgba(118, 134, 162, .9)
@@ -100,21 +104,21 @@ h2 {
 }
 
 ::-webkit-input-placeholder {
-   color: white;
+   color: rgba(227, 231, 232, .75);
    font:26px Georgia, Garamond, Serif;
 }
 
 :-moz-placeholder { 
-   color: white;  
+   color: rgba(227, 231, 232, .75);  
    font:26px Georgia, Garamond, Serif;
 }
 
 ::-moz-placeholder {
-   color: white; 
+   color: rgba(227, 231, 232, .75); 
    font:26px Georgia, Garamond, Serif;
 }
 
 :-ms-input-placeholder {  
-   color: white;  
+   color: rgba(227, 231, 232, .75);  
    font:26px Georgia, Garamond, Serif;
 }

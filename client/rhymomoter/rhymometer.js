@@ -5,7 +5,7 @@ Template.rhymometer.events({
 		event.preventDefault();
 		$("#output").empty();
 
-		
+
 		// Initial declarations
 		let wordSyllables = 0;
 		let count = 0;
@@ -71,7 +71,7 @@ Template.rhymometer.events({
 					break
 				}
 			}
-			return array;	
+			return array;
 		}
 
 		// Delineate the rhymes from the pairs, return array of words between rhymes
@@ -79,9 +79,9 @@ Template.rhymometer.events({
 			let outputs=[];
 			if (pairsArray.length>0){
 				for(let x=0; x<pairsArray.length; x++){
-				
+
 					outputs.push(separate(array, pairs[x][0], pairs[x][1]));
-			
+
 				}
 				return outputs;
 			}
@@ -93,21 +93,21 @@ Template.rhymometer.events({
 			}
 
 			else if (outputs.length>0){
-				
+
 				for(let x=0; x<outputs.length; x++){
-					let partialCount = counter(breakPhrase(outputs[x].join(" ")));
+					let partialCount = counter(outputs[x]);
 					if (partialCount > 0){
 						$("#output").append(partialCount + "\
 					 	" + "syllables from" + "\
-					 	 " + "<em><b>" + breakPhrase(outputs[x].join(" "))[0] + "</b></em>" + " " + "to" + "\
-					 	  " + "<em><b>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "\
+					 	 " + "<em><b>" + outputs[x][0] + "</b></em>" + " " + "to" + "\
+					 	  " + "<em><b>" + outputs[x][(outputs[x].length)-1] + "\
 					 	  " + "</b></em>" + "<br>" +"<br>" );
 					}
 					else{
 						$("#output").append("\
 					 	" + "Gibberish between" + "\
-					 	 " + "<em><b>" + breakPhrase(outputs[x].join(" "))[0] + "</b></em>" + " " + "and" + "\
-					 	  " + "<em><b>" + breakPhrase(outputs[x].join(" "))[(breakPhrase(outputs[x].join(" ")).length)-1] + "\
+					 	 " + "<em><b>" + outputs[x][0] + "</b></em>" + " " + "and" + "\
+					 	  " + "<em><b>" + outputs[x][(outputs[x].length)-1] + "\
 					 	  " + "</b></em>" + "<br>" +"<br>" );
 					}
 				}

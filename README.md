@@ -1,4 +1,4 @@
-#[The Rhymometer](https://www.rhymeometer.herokuapp.com)
+#[The Rhymometer](https://www.rhymometer.herokuapp.com)
 
 ##Overview
 The rhymometer is a tool to assist poets and song writers with tempo. It is a web-based application that parses phrases and finds rhyming pairs in them. It then counts the number of syllables in those parsed phrases (including the rhyme pairs). Finally, it outputs that parsed information.

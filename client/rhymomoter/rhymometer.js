@@ -14,7 +14,7 @@ Template.rhymometer.events({
 
 		// Remove punctuation
 		function breakPhrase(str){
-			let punctuationLess = str.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '');
+			let punctuationLess = str.replace(/[\.\",-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '');
 			let breakLess = punctuationLess.replace(/\r?\n|\r/g, " ");
 			let lowerString = breakLess.toLowerCase();
 			let finalString = lowerString.replace(/\s{2,}/g," ");
